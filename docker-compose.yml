@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  todoapp_server:
+    restart: unless-stopped
+    todoapp_server: async_engine_server
+    ports:
+      - "80:8081"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - mongo
+    networks:
+      jamesevag_net:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: unless-stopped
+    volumes:
+        - '/data/db:/data/db'
+        - '/data/configdb:/data/configdb'
+    networks:
+      jamesevag_net:
+networks:
+  jamesevag_net:
+     driver: bridge
