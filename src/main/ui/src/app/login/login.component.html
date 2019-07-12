@@ -3,5 +3,9 @@
         <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
         User Name: <input type="text" name="username" [(ngModel)] = "username">
         Password: <input type="password" name="password"  [(ngModel)] = "password">
+</div>
+<br>
+<div class="container" style="text-align: center">
         <button (click) = handleLogin()>Login</button>
+        <a [routerLink]="['/register']" class="btn btn-link">Register</a>
 </div>
