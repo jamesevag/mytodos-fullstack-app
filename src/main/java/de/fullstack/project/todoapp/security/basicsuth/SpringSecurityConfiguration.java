@@ -1,4 +1,4 @@
-package de.fullstack.project.todoapp.security;
+package de.fullstack.project.todoapp.security.basicsuth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
