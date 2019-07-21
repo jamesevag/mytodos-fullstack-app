@@ -11,9 +11,10 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { RegisterComponent } from './register/register.component';
+import { HttpInterceptorService } from './service/http/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,9 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass:HttpInterceptorService,multi:true}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
